@@ -12,7 +12,22 @@ interface DataType {
 }
 
 const columns: ColumnsType<DataType> = [
-  // Определение столбцов, как у вас в коде
+  {
+    title: 'Name',
+    dataIndex: 'name',
+    key: 'name',
+  },
+  {
+    title: 'Country',
+    dataIndex: 'country',
+    key: 'country',
+  },
+  {
+    title: 'Website',
+    dataIndex: 'web_pages',
+    key: 'web_pages',
+    render: web_pages => <a href={web_pages[0]} target="_blank" rel="noopener noreferrer">{web_pages[0]}</a>,
+  },
 ];
 
 const LIMIT_LIST_SCHOOL = 10;

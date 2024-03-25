@@ -1,35 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import NavBar from './components/NavBar';
+import HomePage from './components/pages/HomePage';
+import AboutPage from './components/pages/AboutPage';
+import ArticlesPage from './components/pages/ArticlesPage';
+import ContactPage from './components/pages/ContactPage';
+import GlobalStyles from './global-styles';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+
+const App: React.FC = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <><GlobalStyles /><Router>
+      <NavBar isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />
+      <Routes>
+        <Route path="" element={<HomePage />} />
+        <Route path="about" element={<AboutPage />} />
+        <Route path="articles" element={<ArticlesPage />} />
+        <Route path="contact" element={<ContactPage />} />
+      </Routes>
+    </Router></>
+  );
+};
 
-export default App
+export default App;

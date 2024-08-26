@@ -47,6 +47,7 @@ const NavBar: React.FC<NavBarProps> = ({ isAuthenticated, setIsAuthenticated }) 
         <Link to="/about">О нас</Link> 
         <Link to="/articles">Статьи</Link> 
         <Link to="/contact">Контакты</Link>
+        <Link to="/generate-pdf">PDF</Link>
       </div>
       <div>
         <StyledButton onClick={toggleAuth}>

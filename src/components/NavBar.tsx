@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { Button as AntButton } from 'antd';
-import GlobalStyles from '../global-styles';
-
+import React, { useState } from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { Button as AntButton } from "antd";
+import GlobalStyles from "../global-styles";
 
 interface NavBarProps {
   isAuthenticated: boolean;
@@ -28,36 +27,35 @@ const StyledButton = styled(AntButton)`
 `;
 
 const NavBar: React.FC<NavBarProps> = ({ isAuthenticated, setIsAuthenticated }) => {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState("light");
 
   const toggleAuth = () => {
     setIsAuthenticated(!isAuthenticated);
   };
 
   const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', newTheme);
+    const newTheme = theme === "light" ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", newTheme);
     setTheme(newTheme);
   };
 
   return (
-    <><GlobalStyles /><NavbarWrapper>
-      <div>
-        <Link to="/">Главная</Link> 
-        <Link to="/about">О нас</Link> 
-        <Link to="/articles">Статьи</Link> 
-        <Link to="/contact">Контакты</Link>
-        <Link to="/generate-pdf">PDF</Link>
-      </div>
-      <div>
-        <StyledButton onClick={toggleAuth}>
-          {isAuthenticated ? 'Выйти' : 'Войти'}
-        </StyledButton>
-        <StyledButton onClick={toggleTheme}>
-          {theme === 'light' ? 'Темная тема' : 'Светлая тема'}
-        </StyledButton>
-      </div>
-    </NavbarWrapper></>
+    <>
+      <GlobalStyles />
+      <NavbarWrapper>
+        <div>
+          <Link to="/">Главная</Link>
+          <Link to="/about">О нас</Link>
+          <Link to="/articles">Статьи</Link>
+          <Link to="/contact">Контакты</Link>
+          <Link to="/generate-pdf">PDF</Link>
+        </div>
+        <div>
+          <StyledButton onClick={toggleAuth}>{isAuthenticated ? "Выйти" : "Войти"}</StyledButton>
+          <StyledButton onClick={toggleTheme}>{theme === "light" ? "Темная тема" : "Светлая тема"}</StyledButton>
+        </div>
+      </NavbarWrapper>
+    </>
   );
 };
 

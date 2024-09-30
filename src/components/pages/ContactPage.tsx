@@ -39,19 +39,21 @@ const ContactPage: React.FC = () => {
               message: "Нужно больше символов",
             },
           })}
+          data-testid="name-input"
         />
-        <div>{errors.name?.message}</div>
 
         <input
           {...register("age", {
             required: "Поле обязательно для заполнения",
             minLength: {
-              value: 1, // Установите минимальное значение, подходящее для вашего поля
+              value: 1,
               message: "Введите корректный возраст",
             },
           })}
-          type="number" // Указываем тип, чтобы обеспечить ввод чисел
+          type="number"
+          data-testid="age-input"
         />
+        <div>{errors.name?.message}</div>
         <div>{errors.age?.message}</div>
 
         <button type="submit">Сохранить</button>

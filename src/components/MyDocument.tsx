@@ -1,5 +1,5 @@
-import { Page, Text, View, Document, StyleSheet, Image, PDFDownloadLink } from "@react-pdf/renderer";
-import React, { FC } from "react";
+import { FC } from 'react';
+import { Page, Text, View, Document, StyleSheet, Image } from "@react-pdf/renderer";
 
 // Стили для PDF документа
 const styles = StyleSheet.create({

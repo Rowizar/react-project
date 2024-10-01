@@ -1,5 +1,5 @@
 import React from "react";
-import DynamicPagination from "../DynamicPagination"; // Убедитесь, что путь указан верно
+import DynamicPagination from "../DynamicPagination";
 
 const HomePage: React.FC = () => {
   return (

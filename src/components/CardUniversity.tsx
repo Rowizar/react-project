@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, { FC } from "react";
+import { FC } from 'react';
 
 interface IUniversity {
   country: string;

@@ -1,21 +1,20 @@
 import { render, screen, waitFor } from "@testing-library/react";
-import { describe, test, expect, vi } from "vitest";
+import { describe, test, expect, vi, beforeAll } from "vitest";
 import axios from "axios";
 import DynamicPagination from "./DynamicPagination";
 
-// Мокаем IntersectionObserver
-global.IntersectionObserver = class {
-    constructor() { }
-    observe() {
-        return null;
-    }
-    unobserve() {
-        return null;
-    }
-    disconnect() {
-        return null;
-    }
-};
+// Мокаем IntersectionObserver перед всеми тестами
+beforeAll(() => {
+    global.IntersectionObserver = vi.fn(() => ({
+        observe: vi.fn(),
+        disconnect: vi.fn(),
+        root: null,
+        rootMargin: '',
+        thresholds: [],
+        takeRecords: vi.fn(),
+        unobserve: vi.fn(),
+    }));
+});
 
 // Мокаем axios для имитации API-запросов
 vi.mock("axios");

@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, test, expect, vi } from "vitest";
 import HomePage from "./HomePage";
-import DynamicPagination from "../DynamicPagination";
 
 // Мокаем компонент DynamicPagination для проверки рендера в HomePage
 vi.mock("../DynamicPagination", () => {
